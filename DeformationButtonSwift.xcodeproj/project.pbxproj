@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		82DCDA6B1B54BFF400F6189E /* 微信logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82DCDA691B54BFF400F6189E /* 微信logo@2x.png */; };
+		82DCDA6C1B54BFF400F6189E /* 微博logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82DCDA6A1B54BFF400F6189E /* 微博logo@2x.png */; };
+		82DCDA751B5503FC00F6189E /* MozMaterialDesignSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DCDA741B5503FC00F6189E /* MozMaterialDesignSpinner.swift */; };
+		82DCDA771B55042300F6189E /* DeformationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DCDA761B55042300F6189E /* DeformationButton.swift */; };
 		82FCECF21B54A48A0004790E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FCECF11B54A48A0004790E /* AppDelegate.swift */; };
 		82FCECF41B54A48A0004790E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FCECF31B54A48A0004790E /* ViewController.swift */; };
 		82FCECF71B54A48A0004790E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82FCECF51B54A48A0004790E /* Main.storyboard */; };
@@ -26,6 +30,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		82DCDA691B54BFF400F6189E /* 微信logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "微信logo@2x.png"; sourceTree = "<group>"; };
+		82DCDA6A1B54BFF400F6189E /* 微博logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "微博logo@2x.png"; sourceTree = "<group>"; };
+		82DCDA741B5503FC00F6189E /* MozMaterialDesignSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MozMaterialDesignSpinner.swift; sourceTree = "<group>"; };
+		82DCDA761B55042300F6189E /* DeformationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeformationButton.swift; sourceTree = "<group>"; };
 		82FCECEC1B54A48A0004790E /* DeformationButtonSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeformationButtonSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FCECF01B54A48A0004790E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82FCECF11B54A48A0004790E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +64,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		82DCDA671B54BFF400F6189E /* DeformationButton */ = {
+			isa = PBXGroup;
+			children = (
+				82DCDA731B5503FC00F6189E /* MozMaterialDesignSpinner-swift */,
+				82DCDA761B55042300F6189E /* DeformationButton.swift */,
+			);
+			path = DeformationButton;
+			sourceTree = "<group>";
+		};
+		82DCDA681B54BFF400F6189E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				82DCDA691B54BFF400F6189E /* 微信logo@2x.png */,
+				82DCDA6A1B54BFF400F6189E /* 微博logo@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		82DCDA731B5503FC00F6189E /* MozMaterialDesignSpinner-swift */ = {
+			isa = PBXGroup;
+			children = (
+				82DCDA741B5503FC00F6189E /* MozMaterialDesignSpinner.swift */,
+			);
+			path = "MozMaterialDesignSpinner-swift";
+			sourceTree = "<group>";
+		};
 		82FCECE31B54A48A0004790E = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +111,8 @@
 		82FCECEE1B54A48A0004790E /* DeformationButtonSwift */ = {
 			isa = PBXGroup;
 			children = (
+				82DCDA681B54BFF400F6189E /* Resources */,
+				82DCDA671B54BFF400F6189E /* DeformationButton */,
 				82FCECF11B54A48A0004790E /* AppDelegate.swift */,
 				82FCECF31B54A48A0004790E /* ViewController.swift */,
 				82FCECF51B54A48A0004790E /* Main.storyboard */,
@@ -194,7 +230,9 @@
 			files = (
 				82FCECF71B54A48A0004790E /* Main.storyboard in Resources */,
 				82FCECFC1B54A48A0004790E /* LaunchScreen.xib in Resources */,
+				82DCDA6B1B54BFF400F6189E /* 微信logo@2x.png in Resources */,
 				82FCECF91B54A48A0004790E /* Images.xcassets in Resources */,
+				82DCDA6C1B54BFF400F6189E /* 微博logo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,7 +250,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82DCDA751B5503FC00F6189E /* MozMaterialDesignSpinner.swift in Sources */,
 				82FCECF41B54A48A0004790E /* ViewController.swift in Sources */,
+				82DCDA771B55042300F6189E /* DeformationButton.swift in Sources */,
 				82FCECF21B54A48A0004790E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +449,7 @@
 				82FCED0D1B54A48A0004790E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		82FCED0E1B54A48A0004790E /* Build configuration list for PBXNativeTarget "DeformationButtonSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +458,7 @@
 				82FCED101B54A48A0004790E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
