@@ -91,7 +91,7 @@ class DeformationButton: UIControl {
         initSettingWithColor(color)
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initSettingWithColor(self.tintColor)
     }
@@ -132,7 +132,7 @@ class DeformationButton: UIControl {
         self.spinnerView.tintColor = UIColor.whiteColor()
         self.spinnerView.lineWidth = 2
         self.spinnerView.center = CGPointMake(CGRectGetMidX(self.layer.bounds), CGRectGetMidY(self.layer.bounds))
-        self.spinnerView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.spinnerView.translatesAutoresizingMaskIntoConstraints = false
         self.spinnerView.userInteractionEnabled = false
 
         self.addSubview(self.spinnerView)
@@ -178,18 +178,24 @@ class DeformationButton: UIControl {
         UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
             self.bgView.layer.bounds = CGRectMake(0, 0, self.defaultW*self.scale, self.defaultH*self.scale)
         }) { (Bool) -> Void in
-            UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
-                self.bgView.layer.bounds = CGRectMake(0, 0, self.defaultH*self.scale, self.defaultH*self.scale)
-                self.forDisplayButton.transform = CGAffineTransformMakeScale(0.1, 0.1)
-                self.forDisplayButton.alpha = 0
-                }) { (Bool) -> Void in
-                    self.forDisplayButton.hidden = true
-                    self.spinnerView.startAnimating()
+            if self._isLoading {
+                UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+                    self.bgView.layer.bounds = CGRectMake(0, 0, self.defaultH*self.scale, self.defaultH*self.scale)
+                    self.forDisplayButton.transform = CGAffineTransformMakeScale(0.1, 0.1)
+                    self.forDisplayButton.alpha = 0
+                    }) { (Bool) -> Void in
+                        if self._isLoading {
+                            self.forDisplayButton.hidden = true
+                            self.spinnerView.startAnimating()
+                        }
+                }
+
             }
         }
     }
     
     func stopLoading(){
+        _isLoading = false;
         self.spinnerView.stopAnimating()
         self.forDisplayButton.hidden = false
         
@@ -210,22 +216,25 @@ class DeformationButton: UIControl {
         UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
             self.bgView.layer.bounds = CGRectMake(0, 0, self.defaultW*self.scale, self.defaultH*self.scale);
             }) { (Bool) -> Void in
-                let animation = CABasicAnimation(keyPath: "cornerRadius")
-                animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-                animation.fromValue = self.bgView.layer.cornerRadius
-                animation.toValue = self.defaultR
-                animation.duration = 0.2
-                self.bgView.layer.cornerRadius = self.defaultR
-                self.bgView.layer.addAnimation(animation, forKey: "cornerRadius")
-                
-                UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
-                    self.bgView.layer.bounds = CGRectMake(0, 0, self.defaultW, self.defaultH);
-                    }) { (Bool) -> Void in
-                        if (self.btnBackgroundImage != nil) {
-                            self.forDisplayButton.setBackgroundImage(self.btnBackgroundImage, forState: UIControlState.Normal)
-                        }
-                        self.bgView.hidden = true
-                        self._isLoading = false
+                if !self._isLoading {
+                    let animation = CABasicAnimation(keyPath: "cornerRadius")
+                    animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+                    animation.fromValue = self.bgView.layer.cornerRadius
+                    animation.toValue = self.defaultR
+                    animation.duration = 0.2
+                    self.bgView.layer.cornerRadius = self.defaultR
+                    self.bgView.layer.addAnimation(animation, forKey: "cornerRadius")
+                    
+                    UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+                        self.bgView.layer.bounds = CGRectMake(0, 0, self.defaultW, self.defaultH);
+                        }) { (Bool) -> Void in
+                            if !self._isLoading {
+                                if (self.btnBackgroundImage != nil) {
+                                    self.forDisplayButton.setBackgroundImage(self.btnBackgroundImage, forState: UIControlState.Normal)
+                                }
+                                self.bgView.hidden = true
+                            }
+                    }
                 }
         }
     }

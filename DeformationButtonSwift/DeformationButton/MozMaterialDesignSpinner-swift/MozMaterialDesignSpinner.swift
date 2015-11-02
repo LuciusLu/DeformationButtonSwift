@@ -43,7 +43,7 @@ class MozMaterialDesignSpinner: UIView {
         initialize()
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initialize()
     }
@@ -151,7 +151,7 @@ class MozMaterialDesignSpinner: UIView {
 //MARK: - Private
     
     func updatePath() {
-        let acenter = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds))
+//        let acenter = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds))
         let aradius = min(CGRectGetWidth(self.bounds)/2, CGRectGetHeight(self.bounds) / 2) - self.progressLayer.lineWidth / 2
         let astartAngle = CGFloat(0)
         let aendAngle = CGFloat(2*M_PI)
